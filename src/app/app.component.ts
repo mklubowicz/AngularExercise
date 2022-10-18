@@ -7,33 +7,38 @@ import { Component} from '@angular/core';
 })
  export class AppComponent {
    title = 'myAngularProject';
-   student = new Student("Adam","Kowalski",1);
+   student: Student = new Student("Temporary","Temporary",0);
+   constructor() {
+    this.student.name = "Pawel";
+    this.student.surname = "Nowak";
+    this.student.index = 3;
+   }
  }
 class Student {
-  private name: string;
-  private surname: string;
-  private index: number;
+  private _name: string;
+  private _surname: string;
+  private _index: number;
   constructor(name: string, surname:string, index:number){
-    this.name = name;
-    this.surname = surname;
-    this.index = index;
+    this._name = name;
+    this._surname = surname;
+    this._index = index;
   }
   public get getName(): string{
     return this.name;
   }
-  public set setName(name: string){
+  public set name(name: string){
     this.name = name;
   }
   public get getSurname(): string{
-    return this.surname;
+    return this._surname;
   }
-  public set setSurname(surname: string){
-    this.surname = surname;
+  public set surname(surname: string){
+    this._surname = surname;
   }
   public get getIndex(): number{
-    return this.index;
+    return this._index;
   }
-  public set setIndex(index:number){
-    this.index = index;
+  public set index(index:number){
+    this._index = index;
   }
 }
